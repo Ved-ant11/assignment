@@ -29,7 +29,7 @@ export const updateTask = async (req: Request, res: Response) => {
   const task = await Task.findByIdAndUpdate(
     id,
     { completed },
-    { new: true }
+    { returnDocument: 'after' }
   );
 
   if (!task) {
